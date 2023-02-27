@@ -16,6 +16,16 @@ namespace AM.Infrastructure.Configurations
         {
             builder.HasKey(f => f.FlightId);
             builder.ToTable("Vols");
+
+            // Configuration 1..*
+            builder.HasOne(f => f.Plane)
+                .WithMany(p => p.Flights)
+                .HasForeignKey(f => f.PlaneFk) 
+                .OnDelete(DeleteBehavior.SetNull);
+            // config *..*
+            builder.HasMany(f => f.Passengers)
+                .WithMany(p => p.Flights)
+                .UsingEntity(pf => pf.ToTable("MyReservations") ; 
         }
     }
 }
