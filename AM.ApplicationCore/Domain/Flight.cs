@@ -23,7 +23,7 @@ namespace AM.ApplicationCore.Domain
         public Plane? Plane { get; set; }
 
         [ForeignKey("Plane")]
-        public int PlaneFk { get; set; } // prop clé etrangére
+        public int? PlaneFk { get; set; } // prop clé etrangére
         public override string? ToString()
         {
             return base.ToString();

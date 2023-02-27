@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AM.Infrastructure.Migrations
 {
     [DbContext(typeof(AmContext))]
-    [Migration("20230227102205_fluentAPI2")]
-    partial class fluentAPI2
+    [Migration("20230227110728_fluentAPI")]
+    partial class fluentAPI
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,12 +50,12 @@ namespace AM.Infrastructure.Migrations
                     b.Property<DateTime>("FlightDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("PlaneId")
+                    b.Property<int?>("PlaneFk")
                         .HasColumnType("int");
 
                     b.HasKey("FlightId");
 
-                    b.HasIndex("PlaneId");
+                    b.HasIndex("PlaneFk");
 
                     b.ToTable("Vols", (string)null);
                 });
@@ -109,14 +109,15 @@ namespace AM.Infrastructure.Migrations
 
             modelBuilder.Entity("AM.ApplicationCore.Domain.Plane", b =>
                 {
-                    b.Property<int>("PlaneId")
+                    b.Property<int>("PlaneKey")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PlaneId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PlaneKey"));
 
                     b.Property<int>("Capacity")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("PlaneCapacity");
 
                     b.Property<DateTime>("ManufactureDate")
                         .HasColumnType("datetime2");
@@ -124,9 +125,9 @@ namespace AM.Infrastructure.Migrations
                     b.Property<int>("PlaneType")
                         .HasColumnType("int");
 
-                    b.HasKey("PlaneId");
+                    b.HasKey("PlaneKey");
 
-                    b.ToTable("Planes");
+                    b.ToTable("MyPlane", (string)null);
                 });
 
             modelBuilder.Entity("FlightPassenger", b =>
@@ -141,7 +142,7 @@ namespace AM.Infrastructure.Migrations
 
                     b.HasIndex("PassengersPassportNumber");
 
-                    b.ToTable("FlightPassenger");
+                    b.ToTable("MyReservations", (string)null);
                 });
 
             modelBuilder.Entity("AM.ApplicationCore.Domain.Staff", b =>
@@ -180,9 +181,8 @@ namespace AM.Infrastructure.Migrations
                 {
                     b.HasOne("AM.ApplicationCore.Domain.Plane", "Plane")
                         .WithMany("Flights")
-                        .HasForeignKey("PlaneId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PlaneFk")
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("Plane");
                 });

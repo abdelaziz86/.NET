@@ -25,7 +25,7 @@ namespace AM.Infrastructure.Configurations
             // config *..*
             builder.HasMany(f => f.Passengers)
                 .WithMany(p => p.Flights)
-                .UsingEntity(pf => pf.ToTable("MyReservations") ; 
+                .UsingEntity(pf => pf.ToTable("MyReservations")) ; 
         }
     }
 }
