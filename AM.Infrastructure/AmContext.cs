@@ -47,7 +47,8 @@ namespace AM.Infrastructure
             modelBuilder.ApplyConfiguration(new PassengerConfiguration()); 
             modelBuilder.ApplyConfiguration(new FlightConfiguration());
             modelBuilder.ApplyConfiguration(new PlaneConfiguration());
-
+            modelBuilder.Entity<Staff>().ToTable("Staffs");
+            modelBuilder.Entity<Traveller>().ToTable("Travellers"); 
         }
 
         // change all properties to 100 chars max
@@ -56,7 +57,7 @@ namespace AM.Infrastructure
             configurationBuilder.Properties<string>().HaveMaxLength(100).HaveColumnType("varchar");
             configurationBuilder.Properties<DateTime>().HaveColumnType("date");
             configurationBuilder.Properties<double>().HavePrecision(3, 2); 
-
+              
             
         }
 
