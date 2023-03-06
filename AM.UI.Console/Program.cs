@@ -27,7 +27,7 @@ traveller.PassengerType();
 Console.WriteLine("Hello, World!");
 
 ServiceFlight serviceFlight = new ServiceFlight();
-serviceFlight.Flights = TestData.listFlights;
+//serviceFlight.Flights = TestData.listFlights;
 //Methode Anonyme
 serviceFlight.GetFlights("Paris", 
     delegate (string value, Flight f) 

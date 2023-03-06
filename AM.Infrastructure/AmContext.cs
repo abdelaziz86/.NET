@@ -56,6 +56,7 @@ namespace AM.Infrastructure
             configurationBuilder.Properties<string>().HaveMaxLength(100).HaveColumnType("varchar");
             configurationBuilder.Properties<DateTime>().HaveColumnType("date");
             configurationBuilder.Properties<double>().HavePrecision(3, 2); 
+
             
         }
 
