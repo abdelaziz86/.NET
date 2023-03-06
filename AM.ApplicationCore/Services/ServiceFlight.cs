@@ -113,15 +113,16 @@ namespace AM.ApplicationCore.Services
 
         public IEnumerable<Traveller> SeniorTravellers(Flight flight)
         {
-          /*
-            var quer = from p in flight.Passengers.OfType<Traveller>().ToList()
-                        .OrderByDescending(p => p.BirthDate).Take(3)
-                       select p;
-          */
+            /*
+              var quer = from p in flight.Passengers.OfType<Traveller>().ToList()
+                          .OrderByDescending(p => p.BirthDate).Take(3)
+                         select p;
+            */
 
-            var query = flight.Passengers.OfType<Traveller>().ToList()
-                        .OrderByDescending(p=>p.BirthDate).Take(3);
-            return query;
+            // var query = flight.Passengers.OfType<Traveller>().ToList()
+            //             .OrderByDescending(p=>p.BirthDate).Take(3);
+            // return query;
+            return null; 
         }
 
         public IEnumerable<IGrouping<string,Flight>> DestinationGroupedFlights2()

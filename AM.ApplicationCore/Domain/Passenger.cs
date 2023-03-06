@@ -40,7 +40,7 @@ namespace AM.ApplicationCore.Domain
         {
             Console.WriteLine("I'm a passenger");
         }
-        public List<Flight>? Flights { get; set; }
+        public List<Ticket>? Tickets { get; set; }
        
         public override string? ToString()
         {
