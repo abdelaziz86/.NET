@@ -21,7 +21,7 @@ namespace AM.Infrastructure.Migrations
             migrationBuilder.DropIndex(
                 name: "IX_Ticket_FlightId",
                 table: "Ticket");
-
+             
             migrationBuilder.DropIndex(
                 name: "IX_Ticket_PassengerPassportNumber",
                 table: "Ticket");
