@@ -36,6 +36,10 @@ namespace AM.Infrastructure
                 .HasColumnType("nchar") ;
         }*/
 
+
+
+
+
         // fluent api
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -46,6 +50,14 @@ namespace AM.Infrastructure
 
         }
 
+        // change all properties to 100 chars max
+        protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+        {
+            configurationBuilder.Properties<string>().HaveMaxLength(100).HaveColumnType("varchar");
+            configurationBuilder.Properties<DateTime>().HaveColumnType("date");
+            configurationBuilder.Properties<double>().HavePrecision(3, 2); 
+            
+        }
 
     }
 }

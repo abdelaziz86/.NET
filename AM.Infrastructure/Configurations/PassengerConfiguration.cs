@@ -20,5 +20,7 @@ namespace AM.Infrastructure.Configurations
                 .HasDefaultValue("name")
                 .HasColumnType("nchar");
         }
+
+
     }
 }
