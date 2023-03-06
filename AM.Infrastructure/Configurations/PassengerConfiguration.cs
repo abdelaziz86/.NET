@@ -27,11 +27,11 @@ namespace AM.Infrastructure.Configurations
 
             });
 
-            builder
-                .HasDiscriminator<int>("Istraveller")
-                .HasValue<Passenger>(0)
-                .HasValue<Staff>(1)
-                .HasValue<Traveller>(2); 
+            //builder
+            //    .HasDiscriminator<int>("Istraveller")
+            //    .HasValue<Passenger>(0)
+            //    .HasValue<Staff>(1)
+            //    .HasValue<Traveller>(2); 
 
              
         }

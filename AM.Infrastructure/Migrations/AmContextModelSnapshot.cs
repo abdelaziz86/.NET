@@ -76,9 +76,6 @@ namespace AM.Infrastructure.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("varchar");
 
-                    b.Property<int>("Istraveller")
-                        .HasColumnType("int");
-
                     b.Property<int>("PassengerId")
                         .HasColumnType("int");
 
@@ -89,11 +86,9 @@ namespace AM.Infrastructure.Migrations
 
                     b.HasKey("PassportNumber");
 
-                    b.ToTable("Passengers");
+                    b.ToTable("Passenger", (string)null);
 
-                    b.HasDiscriminator<int>("Istraveller").HasValue(0);
-
-                    b.UseTphMappingStrategy();
+                    b.UseTptMappingStrategy();
                 });
 
             modelBuilder.Entity("AM.ApplicationCore.Domain.Plane", b =>
@@ -149,7 +144,7 @@ namespace AM.Infrastructure.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("varchar");
 
-                    b.HasDiscriminator().HasValue(1);
+                    b.ToTable("Staff", (string)null);
                 });
 
             modelBuilder.Entity("AM.ApplicationCore.Domain.Traveller", b =>
@@ -166,7 +161,7 @@ namespace AM.Infrastructure.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("varchar");
 
-                    b.HasDiscriminator().HasValue(2);
+                    b.ToTable("Traveller", (string)null);
                 });
 
             modelBuilder.Entity("AM.ApplicationCore.Domain.Flight", b =>
@@ -200,7 +195,7 @@ namespace AM.Infrastructure.Migrations
 
                             b1.HasKey("PassengerPassportNumber");
 
-                            b1.ToTable("Passengers");
+                            b1.ToTable("Passenger");
 
                             b1.WithOwner()
                                 .HasForeignKey("PassengerPassportNumber");
@@ -221,6 +216,24 @@ namespace AM.Infrastructure.Migrations
                     b.HasOne("AM.ApplicationCore.Domain.Passenger", null)
                         .WithMany()
                         .HasForeignKey("PassengersPassportNumber")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("AM.ApplicationCore.Domain.Staff", b =>
+                {
+                    b.HasOne("AM.ApplicationCore.Domain.Passenger", null)
+                        .WithOne()
+                        .HasForeignKey("AM.ApplicationCore.Domain.Staff", "PassportNumber")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("AM.ApplicationCore.Domain.Traveller", b =>
+                {
+                    b.HasOne("AM.ApplicationCore.Domain.Passenger", null)
+                        .WithOne()
+                        .HasForeignKey("AM.ApplicationCore.Domain.Traveller", "PassportNumber")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

@@ -58,7 +58,7 @@ namespace AM.Infrastructure
 
             modelBuilder.Entity<Staff>().ToTable("Staff");
             modelBuilder.Entity<Traveller>().ToTable("Traveller");
-            modelBuilder.Entity<Traveller>().ToTable("Passenger");
+            modelBuilder.Entity<Passenger>().ToTable("Passenger");
 
         }
 
