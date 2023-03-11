@@ -20,7 +20,7 @@ namespace AM.ApplicationCore.Domain
         [EmailAddress]
         public String EmailAddress { get; set; }
 
-
+      
         public FullName FullName { get; set; }
 
         [RegularExpression("[0-9]{8}")]

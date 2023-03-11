@@ -10,6 +10,7 @@ namespace AM.ApplicationCore.Domain
     //[Table("Vols")]
     public class Flight
     {
+        
         public int FlightId { get; set; }
         public String Destination { get; set; }
         public String Departure { get; set; }
