@@ -9,7 +9,7 @@ using System.ComponentModel;
 namespace AM.ApplicationCore.Domain
 {
     public class Passenger
-    {
+    {   
         public int PassengerId { get; set; }
         //[DisplayName("Date Of Birth")]
         [Display(Name = "Date Of Birth"), DataType(DataType.Date)]
