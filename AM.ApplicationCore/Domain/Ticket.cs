@@ -15,6 +15,7 @@ namespace AM.ApplicationCore.Domain
         [ForeignKey("Flight")]
         public int FlightFk { get; set; }
         public double Prix { get; set; }
+         
         public string Siege { get; set; }
         public bool VIP { get; set; }
 

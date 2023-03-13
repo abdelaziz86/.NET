@@ -62,7 +62,7 @@ namespace AM.Infrastructure
             modelBuilder.Entity<Traveller>().ToTable("Traveller");
             modelBuilder.Entity<Passenger>().ToTable("Passenger");
             //modelBuilder.Entity<Ticket>().HasKey(p => new { p.FlightFk, p.PassengerFk }); 
-
+            modelBuilder.Entity<Passenger>().OwnsOne(p=>p.FullName , fn )
         }
 
         // change all properties to 100 chars max
