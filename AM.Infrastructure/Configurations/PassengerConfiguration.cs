@@ -27,11 +27,11 @@ namespace AM.Infrastructure.Configurations
 
             });
 
-            builder
-                .hasdiscriminator<int>("istraveller")
-                .hasvalue<passenger>(0)
-                .hasvalue<staff>(1)
-                .hasvalue<traveller>(2);
+            //builder
+            //    .hasdiscriminator<int>("istraveller")
+            //    .hasvalue<passenger>(0)
+            //    .hasvalue<staff>(1)
+            //    .hasvalue<traveller>(2);
 
 
         }
