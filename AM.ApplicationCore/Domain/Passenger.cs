@@ -39,7 +39,7 @@ namespace AM.ApplicationCore.Domain
         public virtual void PassengerType()
         {
             Console.WriteLine("I'm a passenger");
-        }   
+        }            
         public List<Ticket>? Tickets { get; set; }
        
         public override string? ToString()
