@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AM.Infrastructure.Configurations
 {
-    internal class ReservationConfiguration : IEntityTypeConfiguration<Reservation>
+    public class ReservationConfiguration : IEntityTypeConfiguration<Reservation>
     {
         public void Configure(EntityTypeBuilder<Reservation> builder)
         {
@@ -21,7 +21,7 @@ namespace AM.Infrastructure.Configurations
                 .WithMany(p => p.Reservations)
                 .HasForeignKey(f => f.SeatFk);
 
-            builder.HasKey(r => new { r.PassengerFk, r.SeatFk, r.DateReservation })
+            builder.HasKey(r => new { r.PassengerFk, r.SeatFk, r.DateReservation });
 
         }
     }

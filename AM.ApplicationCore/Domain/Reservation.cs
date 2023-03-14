@@ -10,8 +10,11 @@ namespace AM.ApplicationCore.Domain
     {
         public DateTime DateReservation { get; set; }
 
-        public Seat Seat { get; set; }
-        public Passenger Passenger { get; set; }
+        public virtual Seat Seat { get; set; }
+        public virtual Passenger Passenger { get; set; }
+
+        public int PassengerFk { get; set; }
+        public int SeatFk { get; set; }
 
     }
 }

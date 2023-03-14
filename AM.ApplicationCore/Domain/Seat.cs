@@ -22,10 +22,10 @@ namespace AM.ApplicationCore.Domain
         [ForeignKey("Plane")]
         public int? PlaneFK; // pour forcer le nom de la clé etrangére
         
-        public Plane Plane { get; set; }
+        public virtual Plane Plane { get; set; }
 
-        public Section Section { get; set; }
+        public virtual Section Section { get; set; }
 
-        public List<Reservation>? Reservations { get; set; }
+        public virtual List<Reservation>? Reservations { get; set; }
     }
 }

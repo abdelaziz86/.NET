@@ -64,6 +64,10 @@ var am = new AmContext();
 //am.SaveChanges();
 
 
+
+
+
+// ===== affichage
 foreach(var item in am.Flights.ToList())
 {
     Console.WriteLine(item.FlightId + ", " + item.Plane.Capacity); 

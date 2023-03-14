@@ -5,7 +5,7 @@
 namespace AM.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class TPT4 : Migration
+    public partial class test2 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

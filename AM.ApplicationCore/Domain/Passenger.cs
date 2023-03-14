@@ -42,7 +42,7 @@ namespace AM.ApplicationCore.Domain
         }            
         public virtual List<Ticket>? Tickets { get; set; }
 
-        public List<Reservation>? Reservations { get; set; }
+        public virtual List<Reservation>? Reservations { get; set; }
 
 
         public override string? ToString()
