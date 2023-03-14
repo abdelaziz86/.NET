@@ -17,6 +17,12 @@ namespace AM.Infrastructure
         public DbSet<Plane> Planes { get; set; }
         public DbSet<Staff> Staffs { get; set; }
 
+        public DbSet<Seat> Seats { get; set; }
+        public DbSet<Section> Sections { get; set; }
+        public DbSet<Reservation> Reservations { get; set; }
+
+
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"data source = (localdb)\mssqllocaldb;" +
@@ -49,6 +55,8 @@ namespace AM.Infrastructure
             modelBuilder.ApplyConfiguration(new FlightConfiguration());
             modelBuilder.ApplyConfiguration(new PlaneConfiguration());
             modelBuilder.ApplyConfiguration(new TicketConfiguration());
+            modelBuilder.ApplyConfiguration(new ReservationConfiguration());
+            modelBuilder.ApplyConfiguration(new SectionConfiguration());
 
 
 
