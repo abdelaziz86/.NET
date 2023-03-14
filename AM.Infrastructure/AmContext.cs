@@ -70,6 +70,9 @@ namespace AM.Infrastructure
             modelBuilder.Entity<Staff>().ToTable("Staff");
             modelBuilder.Entity<Traveller>().ToTable("Traveller");
             modelBuilder.Entity<Passenger>().ToTable("Passenger");
+            modelBuilder.Entity<Reservation>().HasOne(r => r.Seat)
+                .WithMany(p => p.Reservations)
+                .HasForeignKey(f => f.SeatFk);
             //modelBuilder.Entity<Ticket>().HasKey(p => new { p.FlightFk, p.PassengerFk });  
         }
 
