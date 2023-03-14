@@ -41,7 +41,10 @@ namespace AM.ApplicationCore.Domain
             Console.WriteLine("I'm a passenger");
         }            
         public virtual List<Ticket>? Tickets { get; set; }
-       
+
+        public List<Reservation>? Reservations { get; set; }
+
+
         public override string? ToString()
         {
             return base.ToString();
