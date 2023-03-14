@@ -20,7 +20,8 @@ namespace AM.Infrastructure
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"data source = (localdb)\mssqllocaldb;" +
-                "initial catalog=AbdelazizMakhlouf; integrated security = true"); 
+                "initial catalog=AbdelazizMakhlouf; integrated security = true");
+            optionsBuilder.UseLazyLoadingProxies(true); 
 
         }
 

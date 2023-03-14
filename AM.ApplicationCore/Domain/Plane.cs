@@ -32,7 +32,7 @@ namespace AM.ApplicationCore.Domain
 
 
 
-        public List<Flight>? Flights { get; set; }
+        public virtual List<Flight>? Flights { get; set; }
 
         public override string? ToString()
         {

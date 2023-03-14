@@ -40,23 +40,36 @@ using AM.Infrastructure;
 //);
 
 
-var am = new AmContext();
-am.Flights.Add(new Flight()
-{
-    Departure = "Tunis",
-    Destination = "Sousse",
-    FlightDate = new DateTime(2022, 2, 2),
-    EffectiveArrival = DateTime.Now,
-    EstimatedDuration = 1,
-    Plane = new Plane()
-    {
-        Capacity = 15,
-        ManufactureDate = DateTime.Now,
-        PlaneType = PlaneType.Boing
-    }
-}); 
 
-am.SaveChanges();
+var am = new AmContext();
+
+// ======= add
+
+//
+//am.Flights.Add(new Flight()
+//{
+//    Departure = "Tunis",
+//    Destination = "Sousse",
+//    FlightDate = new DateTime(2022, 2, 2),
+//    EffectiveArrival = DateTime.Now,
+//    EstimatedDuration = 1,
+//    Plane = new Plane()
+//    {
+//        Capacity = 15,
+//        ManufactureDate = DateTime.Now,
+//        PlaneType = PlaneType.Boing
+//    }
+//}); 
+
+//am.SaveChanges();
+
+
+foreach(var item in am.Flights.ToList())
+{
+    Console.WriteLine(item.FlightId + ", " + item.Plane.Capacity); 
+}
+
+
 
 
 
