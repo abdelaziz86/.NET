@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AM.Infrastructure
 {
-    internal class AmContext: DbContext
+    public class AmContext: DbContext
     {
         public DbSet<Traveller> Travellers { get; set; }
         public DbSet<Passenger> Passengers { get; set; }
