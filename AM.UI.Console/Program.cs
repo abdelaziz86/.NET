@@ -10,7 +10,7 @@ using AM.Infrastructure;
 //p1.PlaneKey = 2;
 
 //Console.WriteLine(p1);
-
+//dadad 
 //Plane p2 = new Plane(10, new DateTime(2015, 01, 16), PlaneType.Airbus);
 
 //Console.WriteLine(p2);
