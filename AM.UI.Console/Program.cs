@@ -14,7 +14,7 @@ using AM.Infrastructure;
 //Plane p2 = new Plane(10, new DateTime(2015, 01, 16), PlaneType.Airbus);
 
 //Console.WriteLine(p2);
-
+//console.WriteLine(p2) ; 
 //Passenger passenger = new Passenger();
 //passenger.PassengerType();
 
