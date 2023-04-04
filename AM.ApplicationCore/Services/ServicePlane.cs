@@ -1,0 +1,37 @@
+﻿using AM.ApplicationCore.Domain;
+using AM.ApplicationCore.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AM.ApplicationCore.Services
+{
+    internal class ServicePlane
+    {
+        private IUnitOfWork uow;
+
+        public ServicePlane(IUnitOfWork uow)
+        {
+            this.uow = uow;
+        }
+
+        public void Add(Plane plane)
+        {
+            uow.Repository<Plane>().Add(plane);
+            uow.Save(); 
+        }
+
+        public void Update(Plane plane)
+        {
+            uow.Repository<Plane>().Update(plane);
+            uow.Save();
+        }
+
+        public IList<Plane> GetAll()
+        {
+            return uow.Repository<Plane>().GetAll().ToList();
+        }
+    }
+}
