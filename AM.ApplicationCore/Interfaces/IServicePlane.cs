@@ -9,7 +9,7 @@ namespace AM.ApplicationCore.Interfaces
 {
     public interface IServicePlane: IService<Plane>
     {
-         
+         public IList<Passenger> GetPassenger(Plane p) ; 
 
     }
 }

@@ -17,6 +17,14 @@ namespace AM.ApplicationCore.Services
             //this.uow = uow;
         }
 
+        public IList<Passenger> GetPassenger(Plane p)
+        {
+            //return p.Flights.
+            //    SelectMany(f => f.Tickets).
+            //    Select(p=>p.Passenger).
+            //    ToList() ;
+        }
+
         //public void Add(Plane plane)
         //{
         //    uow.Repository<Plane>().Add(plane);
