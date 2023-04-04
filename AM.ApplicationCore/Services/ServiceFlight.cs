@@ -11,10 +11,12 @@ namespace AM.ApplicationCore.Services
     public class ServiceFlight : Service<Flight>, IServiceFlight
     {
         private readonly IUnitOfWork uow ; 
-        public ServiceFlight(IUnitOfWork uow)
-        {
-            this.uow = uow;
-        }
+        //public ServiceFlight(IUnitOfWork uow)
+        //{
+        //    this.uow = uow;
+        //}
+
+        public ServiceFlight(IUnitOfWork unitOfWork) : base(unitOfWork) { }
 
         //public void add(flight flight)
         //{
