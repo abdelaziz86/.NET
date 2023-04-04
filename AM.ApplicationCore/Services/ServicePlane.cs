@@ -23,6 +23,16 @@ namespace AM.ApplicationCore.Services
             //    SelectMany(f => f.Tickets).
             //    Select(p=>p.Passenger).
             //    ToList() ;
+
+            return GetById(p.PlaneKey).Flights.
+                SelectMany(f => f.Tickets).
+                Select(p => p.Passenger).
+                ToList();
+        }
+
+        public IList<Flight> GetFlights(int n)
+        {
+            GetAll().OrderByDescending(p => p.PlaneKey).Take(n); 
         }
 
         //public void Add(Plane plane)
