@@ -32,7 +32,19 @@ namespace AM.ApplicationCore.Services
 
         public IList<Flight> GetFlights(int n)
         {
-            GetAll().OrderByDescending(p => p.PlaneKey).Take(n); 
+            return GetAll()
+                .OrderByDescending(p => p.PlaneKey)
+                .Take(n)
+                .SelectMany(p=>p.Flights)
+                .OrderBy(f=>f.FlightDate)
+                .ToList(); 
+        }
+
+        public bool IsAvailablePlane(Plane plane)
+        {
+            var capacity = plane.Capacity;
+            var nbTicket = plane.Flights.SelectMany(f => f.Tickets).Count(); 
+            return capacity > nbTicket;
         }
 
         //public void Add(Plane plane)
