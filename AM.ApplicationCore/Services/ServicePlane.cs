@@ -40,10 +40,10 @@ namespace AM.ApplicationCore.Services
                 .ToList(); 
         }
 
-        public bool IsAvailablePlane(Plane plane)
+        public bool IsAvailablePlane(Flight flight, int n  )
         {
-            var capacity = plane.Capacity;
-            var nbTicket = plane.Flights.SelectMany(f => f.Tickets).Count(); 
+            var capacity = flight.Plane.Capacity;
+            var nbTicket = flight.Tickets.Count(); 
             return capacity > nbTicket;
         }
 

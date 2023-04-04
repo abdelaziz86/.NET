@@ -12,7 +12,7 @@ namespace AM.ApplicationCore.Interfaces
          public IList<Passenger> GetPassenger(Plane p) ;
         public IList<Flight> GetFlights(int n); 
 
-        public bool IsAvailablePlane(Plane plane) ;
+        public bool IsAvailablePlane(Flight flight, int n) ;
 
     }
 }
